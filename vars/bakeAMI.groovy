@@ -73,7 +73,8 @@ def call(body) {
     bakeEnv << "SOURCE_AMI=${sourceAMI}"
     bakeEnv << "BRANCH=${branchName}"
     withEnv(bakeEnv) {
-      sh './configure $CIINABOX_NAME $REGION $AMI_USERS'
+      sh 'ls -l'
+      sh 'chmod +x configure.sh && ./configure.sh $CIINABOX_NAME $REGION $AMI_USERS'
 
       if(skipCookbookUpload) {
         sh 'mkdir -p cookbooks'
