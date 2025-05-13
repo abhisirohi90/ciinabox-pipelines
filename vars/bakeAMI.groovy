@@ -67,7 +67,7 @@ def call(body) {
   node {
     println "bake config:${config}"
     deleteDir()
-    git(url: 'https://github.com/abhisirohi90/ciinabox-pipelines.git', branch: bakeryBranch)
+    git(url: 'https://github.com/abhisirohi90/ciinabox-bakery.git', branch: bakeryBranch)
     def sourceAMI = (config.baseAMIId) ? config.baseAMIId : lookupAMI(config)
     def branchName = env.BRANCH_NAME.replaceAll("/", "-")
     bakeEnv << "SOURCE_AMI=${sourceAMI}"
